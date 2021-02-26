@@ -12,3 +12,208 @@ the font is called 'nunito' and can be found on google fonts
 ***you can use it if you'd like or you can choose your own***
 
 */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 120vh;
+}
+
+header {
+    display: flex;
+    background: rgb(37,37,37) ;
+    position:fixed;
+    height: 10vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+nav {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80vw;
+}
+
+h1 {
+    color: rgb(42,171,226);
+    text-align:center;
+    display: flex;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    position: relative;
+    left: 13px;
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+h3 {
+    position: relative;
+    top: 20px;
+    left: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 13px;
+}
+
+main {
+    position: relative;
+    top: 80px;
+    display: flex;
+}
+
+article {
+    height: 60vh;
+    width: 55vw;
+    position: relative;
+    top: 20px;
+    left: 40px;
+}
+
+p{
+    position: relative;
+    top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+}
+
+
+.left-main {
+    width: 60vw;
+    height: 100vh;    
+}
+
+.right-main {
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.nav-btn {
+    height: 8vh;
+    width: 8vw;
+    margin-left: 15px;
+    border: none;
+    background: transparent;
+    color: rgb(255,255,255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.nav-btn:hover {
+    background: rgb(42,171,226);
+    color:rgb(37,37,37);
+    cursor: pointer;
+    border: white solid 2px;
+}
+
+.img-all {
+    display: flex;
+    flex-wrap: wrap;
+    height: 40vh;
+    justify-content: space-around;
+    margin: 5px;
+    padding: 40px;
+    position: relative;
+    top: -20px;
+}
+
+.img-gallery {
+    height: 12vh;
+    width: 10vw;
+    background-color: grey;
+    border: solid rgba(0, 0, 0, 0.178);
+    margin: 20px;
+    padding: 20px
+}
+
+footer {
+    position: relative;
+    top: 120px;
+    background: rgb(42,171,226);
+    height: 8vh;
+    text-align: left;
+    padding-top: 15px;
+    padding-left: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.img-name {
+    height: 25vh;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    border: solid rgba(128, 128, 128, 0.13);
+    box-shadow: 0px 0px 10px 4px rgba(30,30,30,0.25);
+}
+
+img {
+    max-width: 20vh;
+}
+
+.your-name {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.list {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-articles {
+    padding: 10px;
+    border: solid rgba(128, 128, 128, 0.13);
+    box-shadow: 0px 0px 10px 4px rgba(30,30,30,0.25);
+    margin: 40px;
+}
+
+.pop-title {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.list-item {
+    font-size: 10px;
+    margin: 3px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.list-item:hover {
+    cursor: pointer;
+}
+
+.help {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding-top: 4px;
+    border: solid rgb(61, 61, 61);
+    border-radius: 50%;
+    background-color: rgb(42,171,226);
+    z-index: 1;
+} 
+
+.help:hover {
+    background: rgb(61, 61, 61);
+    color: rgb(42,171,226);
+    border: rgb(42,171,226) solid;
+}
