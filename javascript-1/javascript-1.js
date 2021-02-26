@@ -41,7 +41,7 @@ let animals = [...forest,...ocean,...savannah,...desert]
     Call the new array 'animalsCopy' and add 'elephant' onto the end of the array.
 */
 
-let animalsCopy = [...animals,elephant]
+let animalsCopy = [...animals,'elephant']
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -52,7 +52,11 @@ let animalsCopy = [...animals,elephant]
 */
 
 compareNums = (num1,num2) => {
-    
+    if(num1 > num2) {
+        return num1
+    } else {
+        return num2
+    }
 }
   
 ////////////////////PROBLEM 5////////////////////
@@ -64,16 +68,14 @@ compareNums = (num1,num2) => {
     we would expect the function to return 'Sharknado is the best movie ever!'
 */
 
-//CODE HERE
-  
+bestMovie = (movie) => `${movie} is the best movie ever!`  
   
 ////////////////////PROBLEM 6////////////////////
 /*
     Write an arrow function called 'jsNinja' that returns the string: 'I am a JavaScript ninja!'
 */
 
-//CODE HERE
-  
+jsNinja = () => `I am a JavaScript ninja!`  
 
 ////////////////////PROBLEM 7////////////////////
 
@@ -93,8 +95,7 @@ compareNums = (num1,num2) => {
     delete the rating property off of the gameInfo object.
 */
 
-//CODE HERE
-  
+delete gameInfo.rating
 
 ////////////////////PROBLEM 8////////////////////
 
@@ -115,8 +116,11 @@ compareNums = (num1,num2) => {
     looping over the shapes object and deleting any property whose value is odd number.
 */
 
-//CODE HERE
-  
+for (let key in shapes) {
+    if (shapes[key] % 2 !== 0) {
+        delete shapes[key]
+    }
+}  
   
 ////////////////////PROBLEM 9////////////////////
 
@@ -157,8 +161,12 @@ const classes = [
     all online classes with no homework.
 */
 
-//CODE HERE
-
+for (let i = 0; i < classes.length;i++){
+    for (let key in classes[i]) {
+        if (classes[i][key] === true) {
+            classes[i][key] = false
+        } 
+}}
   
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -173,9 +181,13 @@ const lettersToPair = ['e', 'k', 's', 'a', 'e', 's', 'a', 'n', 'k', 'n']
 let pairsArray = []
 //DO NOT EDIT CODE ABOVE
 
-//CODE HERE
-
-    
+    for (let i = 0; i < lettersToPair.length; i++) {
+        for (let j = 0; j < lettersToPair.length; j++){
+            if (lettersToPair[i] === lettersToPair[j] && [i] < [j]){
+                pairsArray.push([i,j])
+            }
+        }
+    }
 
 //////////////////////////////////PROBLEMS 11-14//////////////////////////////////
 /*
@@ -190,8 +202,12 @@ let pairsArray = []
     Those values should come from the functions parameters: name, age, breed, tricks (in order).
 */
 
-//CODE HERE
-
+function Dog (name,age,breed,tricks){
+    this.name = name
+    this.age = age
+    this.breed = breed
+    this.tricks = tricks
+}
 
 /*
     Invoke your dog constructor passing in 'Fido' for the name, 3 for the age, 
@@ -199,8 +215,7 @@ let pairsArray = []
     Store the result in a variable called 'fido'.
 */
 
-//CODE HERE
-  
+let fido = new Dog('Fido',3,'Jack Russell',['sit','shake'])  
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -209,15 +224,16 @@ let pairsArray = []
     NAME will come from that context, so you should reference 'this.name' to get the correct name.
 */
 
-//CODE HERE
-
+function bark () {
+    return `${this.name} says bark!`
+}
 
 /*
-    Invoke the call method on bark, passing in fido as the context
-    and saving the result to a variable called fidoSpeak.
+Invoke the call method on bark, passing in fido as the context
+and saving the result to a variable called fidoSpeak.
 */
 
-//CODE HERE
+let fidoSpeak = bark.call(fido)
   
   
 ////////////////////PROBLEM 13////////////////////
@@ -228,16 +244,17 @@ let pairsArray = []
     Tricks will come from that context, so you should reference 'this.tricks' to access the correct array.
 */
 
-//CODE HERE
-
+function teachTrick (trick){
+    this.tricks.push(trick)
+    return this.tricks
+}
 
 /*
     Invoke the bind method on teachTrick, passing in fido as the context and the string 'stay' as a trick.
     Save the result to a variable called 'teachStay'.
 */
 
-//CODE HERE
-  
+let teachStay = teachTrick.bind(fido,'stay')  
   
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -247,17 +264,17 @@ let pairsArray = []
     Remember to use the 'this' keyword to access values from the context that you will apply.
 */
 
-//CODE HERE
-
+function dogIntro (treat,toy) {
+    return `${this.name} is a ${this.breed} that loves ${treat} and their ${toy}!`
+}
 
 /*
-    Invoke the apply method on dogIntro, passing in fido as the context 
-    with 'chicken' as the treat and 'tennis ball' as the toy
-    and save the result to a variable called fidoIntro.
+Invoke the apply method on dogIntro, passing in fido as the context 
+with 'chicken' as the treat and 'tennis ball' as the toy
+and save the result to a variable called fidoIntro.
 */
 
-//CODE HERE
-  
+const fidoIntro = dogIntro.apply(fido,['chicken','tennis ball'])
 
 ////////////////////PROBLEM 15////////////////////
 /*
@@ -266,8 +283,13 @@ let pairsArray = []
     Those values should come from the function's parameters: brand, model, storage, color, sold (in order).
 */
 
-//CODE HERE
-
+function Phone (brand,model,storage,color,sold) {
+    this.brand = brand
+    this.model = model
+    this.storage = storage
+    this.color = color 
+    this.sold = sold
+}
   
 /*
     Next make three new phones using your constructor function.
@@ -280,12 +302,12 @@ let pairsArray = []
     - sold, this should be false for each phone
 */
 
-//CODE HERE
-  // let phone1 = 
+let phone1 = new Phone('Nokia','IDK',3,'blue',false)
+
+let phone2 = new Phone('Nokia','IDK',3,'blue',false)
+
+let phone3 = new Phone('Nokia','IDK',3,'blue',false)
   
-  // let phone2 = 
-  
-  // let phone3 = 
   
 /*
     Last, add a prototype method to Phone.
@@ -295,6 +317,8 @@ let pairsArray = []
     Don't forget about the context of BRAND and MODEL.
 */
 
-//CODE HERE
-
+Phone.prototype.sell = function () {
+    this.sold = true
+    return `${this.brand} ${this.model} has been sold.`
+}
   
