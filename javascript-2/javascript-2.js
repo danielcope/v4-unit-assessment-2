@@ -35,8 +35,8 @@ let foods = [
   and then adding the results together. 
 */
 
-//CODE HERE
-
+foods.forEach(ele => ele.calories = (ele.carbs*4) + (ele.protein*4) + (ele.fat*9))
+  
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
   For problems 2-4, you will be working with the products array below.
@@ -80,7 +80,10 @@ const products = [
   Save the copy to a new variable called 'saleProducts'.
 */
 
-//CODE HERE
+let saleProducts = products.map(function (ele,i,arr){
+    return {name:ele.name,color:ele.color,price:(ele.price - (ele.price*0.25))}
+})
+
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -90,16 +93,25 @@ const products = [
   (Hint: look up the array method 'includes' on MDN)
 */
 
-//CODE HERE
+let blueProducts = saleProducts.filter(function (ele){
+  if(ele.color.includes('blue')) {
+    return ele
+  }
+})
+
 
 ////////////////////PROBLEM 4////////////////////
 /*
-  Now you'd like to get them their order total. 
-  Use the reduce method to add up the prices of the blueProducts. 
-  Save the result to a variable called orderTotal.
+Now you'd like to get them their order total. 
+Use the reduce method to add up the prices of the blueProducts. 
+Save the result to a variable called orderTotal.
 */
 
-//CODE HERE
+
+let orderTotal = blueProducts.reduce(function (acc,ele){
+  return (acc + ele.price)
+},0)
+
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -129,7 +141,7 @@ const shippingInfo = {
   that combines the contactInfo and shippingInfo objects.
 */
 
-//CODE HERE
+let helensInfo = Object.assign(contactInfo,shippingInfo)
 
 ////////////////////PROBLEM 6////////////////////
 /*
@@ -138,14 +150,14 @@ const shippingInfo = {
   Overwrite the name property to 'Ellen' and the email address to 'ellen@email.com'.
 */
 
-//CODE HERE
+let ellensInfo = {...helensInfo, name:'Ellen', email:'ellen@email.com'}
 
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
-//CODE HERE
+let {email} = ellensInfo
 
 ////////////////////PROBLEM 8////////////////////
 /*
@@ -153,7 +165,7 @@ const shippingInfo = {
   from shippingInfo to new variables using destructuring.
 */
 
-//CODE HERE
+let {zipCode,state} = shippingInfo
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -211,46 +223,61 @@ const userInfo = {
 
 ////////////////////PROBLEM 9////////////////////
 /* 
-  Set the value of shouldAlert to the value of alerts in gn@rly_c0der_007's settings
-  using dot notation.
+Set the value of shouldAlert to the value of alerts in gn@rly_c0der_007's settings
+using dot notation.
 */
 
-//CODE HERE
+let shouldAlert = userInfo.settings.alerts
+
+
 
 ////////////////////PROBLEM 10////////////////////
 /*
-  Set the value of topic below to the last item in gn@rly_c0der_007's topics array
-  using dot and/or bracket notation.
+Set the value of topic below to the last item in gn@rly_c0der_007's topics array
+using dot and/or bracket notation.
 */
 
-//CODE HERE
+let topic = userInfo.topics[3]
 
 ////////////////////PROBLEM 11////////////////////
 /*
-  Set the value of commenterId below to the userId of the first response to 
-  gn@rly_c0der_007's 2nd comment using dot/bracket notation.
+Set the value of commenterId below to the userId of the first response to 
+gn@rly_c0der_007's 2nd comment using dot/bracket notation.
 */
 
-//CODE HERE
+let commenterId = userInfo.comments[1].responses[0].userId
 
 ////////////////////PROBLEM 12////////////////////
 /*
-  Create an object called 'person' that has the following properties. 
-  Make sure you match the data types. You can choose the actual values.
-      - name, string
-      - age, number
-      - jobs, array with at least 3 items that are strings
-      - birthday, function that adds 1 to the age, use the 'this' keyword to access age
-      - favorites, an object that has the following properties
-      - color, string
-      - number, number
-      - book, string
-      - kids, an array of kid objects
-      - each kid should have a name (string) and an age (number)
-      - create at least 2 kid objects
+Create an object called 'person' that has the following properties. 
+Make sure you match the data types. You can choose the actual values.
+- name, string
+- age, number
+- jobs, array with at least 3 items that are strings
+- birthday, function that adds 1 to the age, use the 'this' keyword to access age
+- favorites, an object that has the following properties
+- color, string
+- number, number
+- book, string
+- kids, an array of kid objects
+- each kid should have a name (string) and an age (number)
+- create at least 2 kid objects
 */
 
-//CODE HERE
+let person = {
+  name: 'Daniel',
+  age: 28,
+  jobs: ['Police','Teacher','Coach'],
+  birthday: (function (){
+    return this.age ++
+  }),
+  favorites: {
+    color: 'purple',
+    number: 98,
+    book: 'Harry Potter',
+  },
+  kids: [{name:'River',age:23},{name:'River',age:3}]
+}
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
@@ -274,9 +301,9 @@ const workout = {
 }
 
 //let context1 = myFunc
-//let context1 = window
+// let context1 = window
 //let context1 = global
-// let context1 = workout
+let context1 = workout
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -289,6 +316,6 @@ function myFunc() {
 }
 
 //let context2 = myFunc
-// let context2 = window
+let context2 = window
 //let context2 = global
 //let context2 = workout
